@@ -1,0 +1,220 @@
+SQL> create table store(
+  2  id int,
+  3  name varchar2(15),
+  4  type varchar2(15),
+  5  price number(9,2),
+  6  quality varchar2(15),
+  7  itempackdate date
+  8  );
+
+Table created.
+
+SQL> insert into store values('11','dairymilk','chocolate','500','good','12-aug-2000');
+
+1 row created.
+
+SQL> insert into store values('12','kajukatri','mithai','1000','verygood','15-jan-2016');
+
+1 row created.
+
+SQL> insert into store values('13','pizza','fastfood','350','average','20-feb-2015');
+
+1 row created.
+
+SQL> insert into store values('14','orangejuice','juice','50','best','05-feb-2016');
+
+1 row created.
+
+SQL> insert into store values('15','vallinacake','bakeryitem','2000','good','01-jan-2016');
+
+1 row created.
+
+SQL> select * from store;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+        11 dairymilk       chocolate              500 good            12-AUG-00 
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+        13 pizza           fastfood               350 average         20-FEB-15 
+        14 orangejuice     juice                   50 best            05-FEB-16 
+        15 vallinacake     bakeryitem            2000 good            01-JAN-16 
+
+SQL> select price, quality, itempackdate
+  2  from store;
+
+     PRICE QUALITY         ITEMPACKD                                            
+---------- --------------- ---------                                            
+       500 good            12-AUG-00                                            
+      1000 verygood        15-JAN-16                                            
+       350 average         20-FEB-15                                            
+        50 best            05-FEB-16                                            
+      2000 good            01-JAN-16                                             
+
+
+SQL> select quality
+  2  from store;
+
+QUALITY                                                                         
+---------------                                                                 
+good                                                                            
+verygood                                                                        
+average                                                                         
+best                                                                            
+good                                                                            
+
+SQL> select * from store order by quality;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+        13 pizza           fastfood               350 average         20-FEB-15 
+        14 orangejuice     juice                   50 best            05-FEB-16 
+        15 vallinacake     bakeryitem            2000 good            01-JAN-16 
+        11 dairymilk       chocolate              500 good            12-AUG-00 
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+
+SQL> select distinct quality from store;
+
+QUALITY                                                                         
+---------------                                                                 
+average                                                                         
+good                                                                            
+best                                                                            
+verygood                                                                        
+
+SQL> select quality from store where quality ='verygood';
+
+QUALITY                                                                         
+---------------                                                                 
+verygood                                                                        
+
+SQL> update store set quality ='verygood' where quality='good';
+
+2 rows updated.
+
+SQL> select * from store;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+        11 dairymilk       chocolate              500 verygood        12-AUG-00 
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+        13 pizza           fastfood               350 average         20-FEB-15 
+        14 orangejuice     juice                   50 best            05-FEB-16 
+        15 vallinacake     bakeryitem            2000 verygood        01-JAN-16 
+
+SQL> select quality from store where quality ='verygood';
+
+QUALITY                                                                         
+---------------                                                                 
+verygood                                                                        
+verygood                                                                        
+verygood                                                                        
+
+
+SQL> alter table store add item_pur_date date;
+
+Table altered.
+
+SQL> select * from store;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        11 dairymilk       chocolate              500 verygood        12-AUG-00 
+                                                                                
+                                                                                
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+                                                                                
+                                                                                
+        13 pizza           fastfood               350 average         20-FEB-15 
+                                                                                
+                                                                                
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        14 orangejuice     juice                   50 best            05-FEB-16 
+                                                                                
+                                                                                
+        15 vallinacake     bakeryitem            2000 verygood        01-JAN-16 
+                                                                                
+                                                                                
+
+
+SQL> select *from store where price>500;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+                                                                                
+                                                                                
+        15 vallinacake     bakeryitem            2000 verygood        01-JAN-16 
+                                                                                
+                                                                                
+
+SQL> delete from store where price=50;
+
+1 row deleted.
+
+SQL> select * from store;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        11 dairymilk       chocolate              500 verygood        12-AUG-00 
+                                                                                
+                                                                                
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+                                                                                
+                                                                                
+        13 pizza           fastfood               350 average         20-FEB-15 
+                                                                                
+                                                                                
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        15 vallinacake     bakeryitem            2000 verygood        01-JAN-16 
+                                                                                
+                                                                                 
+
+
+SQL> rename store to item_detail;
+
+Table renamed.
+
+
+SQL> select * from item_detail;
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        11 dairymilk       chocolate              500 verygood        12-AUG-00 
+                                                                                
+                                                                                
+        12 kajukatri       mithai                1000 verygood        15-JAN-16 
+                                                                                
+                                                                                
+        13 pizza           fastfood               350 average         20-FEB-15 
+                                                                                
+                                                                                
+
+        ID NAME            TYPE                 PRICE QUALITY         ITEMPACKD 
+---------- --------------- --------------- ---------- --------------- --------- 
+ITEM_PUR_                                                                       
+---------                                                                       
+        15 vallinacake     bakeryitem            2000 verygood        01-JAN-16 
+                                                                                
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

@@ -1,0 +1,150 @@
+SQL> create table person2(
+  2  person_id number,
+  3  fname varchar2(15),
+  4  lname varchar2(16),
+  5  city varchar2(15),
+  6  salary number
+  7  );
+
+Table created.
+
+SQL> insert into person2 values('1','sneha','sheth','rajkot','10000');
+
+1 row created.
+
+SQL> insert into person2 values('2','puja','parmar','ahmedabad','2000');
+
+1 row created.
+
+SQL> insert into person2 values('3','riya','gajar','pune','8000');
+
+1 row created.
+
+SQL> insert into person2 values('4','sandip','jadeja','pune','5000');
+
+1 row created.
+
+SQL> insert into person2 values('5','alpesh','prajapati','mumbai','20000');
+
+1 row created.
+
+SQL> select person_id,fname
+  2  from person2;
+
+ PERSON_ID FNAME
+---------- ---------------
+         1 sneha
+         2 puja
+         3 riya
+         4 sandip
+         5 alpesh
+
+SQL> select fname
+  2  from person2;
+
+FNAME
+---------------
+sneha
+puja
+riya
+sandip
+alpesh
+
+SQL> select person_id,fname,salary
+  2  from person2
+  3  order by salary;
+
+ PERSON_ID FNAME               SALARY
+---------- --------------- ----------
+         2 puja                  2000
+         4 sandip                5000
+         3 riya                  8000
+         1 sneha                10000
+         5 alpesh               20000
+
+SQL> select distinct city
+  2  from person2;
+
+CITY
+---------------
+mumbai
+pune
+rajkot
+ahmedabad
+
+SQL> update person2
+  2  set city='kolkata'
+  3  where fname='sandip' and city='pune';
+
+1 row updated.
+
+SQL> select fname
+  2  from person2
+  3  where lname='prajapati';
+
+FNAME
+---------------
+alpesh
+
+SQL> ALTER TABLE Person
+  2  ADD (State VARCHAR2(50));
+
+Table altered.
+
+SQL>
+SQL> ALTER TABLE Person
+  2  ADD (Birthdate DATE);
+
+Table altered.
+
+SQL>
+SQL> ALTER TABLE Person
+  2  ADD (Pincode VARCHAR2(10));
+
+Table altered.
+
+SQL> select * from person2 where salary > 6000;
+
+ PERSON_ID FNAME           LNAME            CITY                SALARY
+---------- --------------- ---------------- --------------- ----------
+         1 sneha           sheth            rajkot               10000
+         3 riya            gajar            pune                  8000
+         5 alpesh          prajapati        mumbai               20000
+
+SQL> delete from person2 where salary < 3000;
+
+1 row deleted.
+
+SQL> rename person2 to person_mstr;
+
+Table renamed.
+
+SQL> select * from person_mstr;
+
+ PERSON_ID FNAME           LNAME            CITY                SALARY
+---------- --------------- ---------------- --------------- ----------
+         1 sneha           sheth            rajkot               10000
+         3 riya            gajar            pune                  8000
+         4 sandip          jadeja           kolkata               5000
+         5 alpesh          prajapati        mumbai               20000
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

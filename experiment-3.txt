@@ -1,0 +1,170 @@
+
+SQL> create table item_master(
+  2  cust_no varchar2(20),
+  3  cust_name varchar2(20),
+  4  address varchar2(20),
+  5  address2 varchar2(20),
+  6  city varchar2(20),
+  7  state varchar2(20),
+  8  ph_no int
+  9  );
+
+Table created.
+
+
+SQL> insert into item_master values('c1','priya','ringroad','puja park','ahmedabad','gujarat','8989875845');
+
+1 row created.
+
+SQL> insert into item_master values('c2','puja','lajpat nagar','shyamal colony','banaras','up','7898456213');
+
+1 row created.
+
+SQL> insert into item_master values('c3','ankit','borivali','panchayat nager','mumbai','maharastra','7885984251');
+
+1 row created.
+
+SQL> insert into item_master values('c4','ravi','vajdiroad','nandbhomi colony','delhi','delhi','7898452034');
+
+1 row created.
+
+SQL> insert into item_master values('c5','alpa','jamanagar road','railway colony','ahmedabad','gujarat','7465241589');
+
+1 row created.
+
+SQL> select*from item_master;
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c1                   priya                ringroad                              
+puja park            ahmedabad            gujarat              8989875845       
+                                                                                
+c2                   puja                 lajpat nagar                          
+shyamal colony       banaras              up                   7898456213       
+                                                                                
+c3                   ankit                borivali                              
+panchayat nager      mumbai               maharastra           7885984251       
+                                                                                
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c4                   ravi                 vajdiroad                             
+nandbhomi colony     delhi                delhi                7898452034       
+                                                                                
+c5                   alpa                 jamanagar road                        
+railway colony       ahmedabad            gujarat              7465241589       
+                                                                                
+
+SQL> select cust_name from item_master where state='gujarat';
+
+CUST_NAME                                                                       
+--------------------                                                            
+priya                                                                           
+alpa                                                                            
+
+SQL> select cust_name from item_master;
+
+CUST_NAME                                                                       
+--------------------                                                            
+priya                                                                           
+puja                                                                            
+ankit                                                                           
+ravi                                                                            
+alpa                                                                            
+
+SQL> select distinct city from item_master;
+
+CITY                                                                            
+--------------------                                                            
+mumbai                                                                          
+delhi                                                                           
+banaras                                                                         
+ahmedabad                                                                       
+
+SQL> update item_master set address='cg road' where address='ringroad';
+
+1 row updated.
+
+SQL> select*from item_master;
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c1                   priya                cg road                               
+puja park            ahmedabad            gujarat              8989875845       
+                                                                                
+c2                   puja                 lajpat nagar                          
+shyamal colony       banaras              up                   7898456213       
+                                                                                
+c3                   ankit                borivali                              
+panchayat nager      mumbai               maharastra           7885984251       
+                                                                                
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c4                   ravi                 vajdiroad                             
+nandbhomi colony     delhi                delhi                7898452034       
+                                                                                
+c5                   alpa                 jamanagar road                        
+railway colony       ahmedabad            gujarat              7465241589       
+                                                                                
+
+SQL> select city from item_master where state='gujarat';
+
+CITY                                                                            
+--------------------                                                            
+ahmedabad                                                                       
+ahmedabad                                                                       
+
+SQL> alter table item_master add pin_code number;
+
+Table altered.
+
+SQL> alter table item_master drop column pin_code;
+
+Table altered.
+
+SQL> delete from item_master where ph_no='7898452034';
+
+1 row deleted.
+
+SQL> rename item_master to customer_detail;
+
+Table renamed.
+
+SQL> select *from customer_detail;
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c1                   priya                cg road                               
+puja park            ahmedabad            gujarat              8989875845       
+                                                                                
+c2                   puja                 lajpat nagar                          
+shyamal colony       banaras              up                   7898456213       
+                                                                                
+c3                   ankit                borivali                              
+panchayat nager      mumbai               maharastra           7885984251       
+                                                                                
+
+CUST_NO              CUST_NAME            ADDRESS                               
+-------------------- -------------------- --------------------                  
+ADDRESS2             CITY                 STATE                     PH_NO       
+-------------------- -------------------- -------------------- ----------       
+c5                   alpa                 jamanagar road                        
+railway colony       ahmedabad            gujarat              7465241589       
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

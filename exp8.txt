@@ -1,0 +1,62 @@
+SQL> SELECT SUM(Amount) AS Total_Deposit
+  2  FROM Deposit;
+
+TOTAL_DEPOSIT                                                                   
+-------------                                                                   
+                                                                                
+
+SQL> SELECT SUM(Amount) AS Total_Loan
+  2  FROM Borrow
+  3  WHERE Bname = 'KAROLBAGH';
+
+TOTAL_LOAN                                                                      
+----------                                                                      
+                                                                                
+
+SQL> SELECT MAX(Amount) AS Max_Loan
+  2  FROM Borrow
+  3  WHERE Bname = 'VRCE';
+
+  MAX_LOAN                                                                      
+----------                                                                      
+                                                                                
+
+SQL> SELECT COUNT(*) AS Total_Customers
+  2  FROM Customers;
+
+TOTAL_CUSTOMERS                                                                 
+---------------                                                                 
+              0                                                                 
+
+SQL> SELECT COUNT(DISTINCT City) AS Total_Cities
+  2  FROM Customers;
+
+TOTAL_CITIES                                                                    
+------------                                                                    
+           0                                                                    
+
+SQL> CREATE TABLE Supplier AS
+  2  SELECT * FROM Employee;
+
+Table created.
+
+
+SQL> CREATE TABLE Sup2 AS
+  2  SELECT * FROM Employee WHERE 1=0;
+
+Table created.
+
+
+
+SQL> ALTER TABLE Sup2 RENAME TO Supplier_Two;
+
+Table altered.
+
+
+
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

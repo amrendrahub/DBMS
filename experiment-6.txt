@@ -1,0 +1,203 @@
+SQL> alter table bank_branch modify branch_state varchar(40);
+
+Table altered.
+
+SQL> update bank_branch set branch_name='union' where id='b003';
+update bank_branch set branch_name='union' where id='b003'
+                                                 *
+ERROR at line 1:
+ORA-00904: "ID": invalid identifier
+
+
+SQL> update bank_branch set branch_name='union' where branch_id='b003';
+
+1 row updated.
+
+SQL> update bank_branch set state='delhi' where branch_name='boi';
+update bank_branch set state='delhi' where branch_name='boi'
+                       *
+ERROR at line 1:
+ORA-00904: "STATE": invalid identifier
+
+
+SQL> update bank_branch set branch_state='delhi' where branch_state='gujarat';
+
+3 rows updated.
+
+SQL> select * from bank_branch;
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY
+--------------- --------------- --------------- ---------------
+BRANCH_STATE                             BRANCH_OP
+---------------------------------------- ---------
+b001            boi             jagnathroad     rajkot
+delhi                                    22-MAR-15
+
+b002            sbi             boriwaliroad    mumbai
+maharastra                               12-JAN-00
+
+b003            union           agraroad        agra
+up                                       04-FEB-98
+
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY
+--------------- --------------- --------------- ---------------
+BRANCH_STATE                             BRANCH_OP
+---------------------------------------- ---------
+b004            denabank        cgroad          ahmedabad
+delhi                                    20-SEP-12
+
+b005            icici           majavdiroad     junagadh
+delhi                                    07-MAY-11
+
+
+SQL> update from bank_branch set branch_open_date='04-nov-2015' where branch_open_date='04-feb-1998';
+update from bank_branch set branch_open_date='04-nov-2015' where branch_open_date='04-feb-1998'
+       *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> update bank_branch set branch_open_date='04-nov-2015' where branch_open_date='04-feb-1998';
+
+1 row updated.
+
+SQL> alter table bank_branch
+  2  add pincode varchar(15);
+
+Table altered.
+
+SQL> desc bank_branch;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_ID                                          VARCHAR2(15)
+ BRANCH_NAME                                        VARCHAR2(15)
+ BRANCH_ADDRESS                                     VARCHAR2(15)
+ BRANCH_CITY                                        VARCHAR2(15)
+ BRANCH_STATE                                       VARCHAR2(40)
+ BRANCH_OPEN_DATE                                   DATE
+ PINCODE                                            VARCHAR2(15)
+
+SQL> insert into bank_branch values('b004','denabank','cgroad','ahmedabad','gujarat','20-sep-2012','360006');
+
+1 row created.
+
+SQL> select* from bank_branch;
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY
+--------------- --------------- --------------- ---------------
+BRANCH_STATE                             BRANCH_OP PINCODE
+---------------------------------------- --------- ---------------
+b001            boi             jagnathroad     rajkot
+delhi                                    22-MAR-15
+
+b002            sbi             boriwaliroad    mumbai
+maharastra                               12-JAN-00
+
+b003            union           agraroad        agra
+up                                       04-NOV-15
+
+
+BRANCH_ID       BRANCH_NAME     BRANCH_ADDRESS  BRANCH_CITY
+--------------- --------------- --------------- ---------------
+BRANCH_STATE                             BRANCH_OP PINCODE
+---------------------------------------- --------- ---------------
+b004            denabank        cgroad          ahmedabad
+delhi                                    20-SEP-12
+
+b005            icici           majavdiroad     junagadh
+delhi                                    07-MAY-11
+
+b004            denabank        cgroad          ahmedabad
+gujarat                                  20-SEP-12 360006
+
+
+6 rows selected.
+
+SQL> delete from bank_branch where branch_open_date='07-may-2011';
+
+1 row deleted.
+
+SQL> rename table bank_branch to branch_master;
+rename table bank_branch to branch_master
+       *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> rename bank_branch to branch_master;
+
+Table renamed.
+
+SQL> desc branch_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_ID                                          VARCHAR2(15)
+ BRANCH_NAME                                        VARCHAR2(15)
+ BRANCH_ADDRESS                                     VARCHAR2(15)
+ BRANCH_CITY                                        VARCHAR2(15)
+ BRANCH_STATE                                       VARCHAR2(40)
+ BRANCH_OPEN_DATE                                   DATE
+ PINCODE                                            VARCHAR2(15)
+
+SQL> create table branch_info as select* from branch_master;
+
+Table created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+not spooling currently
+SQL> spool off;
+not spooling currently
+SQL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,220 @@
+SQL> CREATE TABLE JOB(
+  2  JOB_ID VARCHAR2(15),
+  3  JOB_NAME VARCHSR2(15),
+  4  MIN_SALARY NUMBER(9,2),
+  5  MAX_SALARY NUMBER(9,2)
+  6  );
+JOB_NAME VARCHSR2(15),
+                 *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE JOB(
+  2  JOB_ID VARCHAR2(15),
+  3  JOB_NAME VARCHAR2(15),
+  4  MIN_SALARY NUMBER(9,2),
+  5  MAX_SALARY NUMBER(9,2)
+  6  );
+CREATE TABLE JOB(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> CREATE TABLE JOB1(
+  2  JOB_ID VARCHAR2(15),
+  3  JOB_NAME VARCHSR2(15),
+  4  MIN_SALARY NUMBER(9,2),
+  5  MAX_SALARY NUMBER(9,2)
+  6  );
+JOB_NAME VARCHSR2(15),
+                 *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE JOB1(
+  2  JOB_ID VARCHAR2(15),
+  3  JOB_NAME VARCHAR2(15),
+  4  MIN_SALARY NUMBER(9,2),
+  5  MAX_SALARY NUMBER(9,2)
+  6  );
+
+Table created.
+
+SQL> INSERT INTO JOB1 VALUES('IT_PROG','PROGRAM',4000,10000);
+
+1 row created.
+
+SQL> INSERT INTO JOB1 VALUES('MK_MGR','MARKETING',9000,15000);
+
+1 row created.
+
+SQL> INSERT INTO JOB1 VALUES('FI_MGR','FINANCE',8200,12000);
+
+1 row created.
+
+SQL> INSERT INTO JOB1 VALUES('FI_ACC','AACOUNT',4200,9000);
+
+1 row created.
+
+SQL> INSERT INTO JOB1 VALUES('LEC','AACOUNT',4200,9000);
+
+1 row created.
+
+SQL> INSERT INTO JOB1 VALUES('COMP_OP','COMPUETR',1500,3000);
+
+1 row created.
+
+SQL> SELECT * FROM JOB1;
+
+JOB_ID          JOB_NAME        MIN_SALARY MAX_SALARY                           
+--------------- --------------- ---------- ----------                           
+IT_PROG         PROGRAM               4000      10000                           
+MK_MGR          MARKETING             9000      15000                           
+FI_MGR          FINANCE               8200      12000                           
+FI_ACC          AACOUNT               4200       9000                           
+LEC             AACOUNT               4200       9000                           
+COMP_OP         COMPUETR              1500       3000                           
+
+6 rows selected.
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  EMPLOYEE_NO NUMBER PRIMARY KEY,
+  3  EMPLOYEE_NAME VARCHAR2(15),
+  4  EMPLOYEE_SAL NUMBER(9,2),
+  5  EMPLOYEE_COM NUMBER(9,2),
+  6  DEPT_NO NUMBER
+  7  );
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (100,'SMITH',800,00,20)
+  2  
+SQL> INSERT INTO EMPLOYEE VALUES (100,'SMITH',800,00,20)
+  2  
+SQL> INSERT INTO EMPLOYEE VALUES (100,'SMITH',800,00,20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (101,'SNEHAL',1600,300,00);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (102,'ADAMA',1100,0,20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (103,'AMAN',3000,00,15);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (104,'ANITA',5000,5000,10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (105,'SNEHA',2450,2450,10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (106,'ANAMIKA',2975,00,30);
+
+1 row created.
+
+SQL> SELECT * FROM  EMPLOYEE;
+
+EMPLOYEE_NO EMPLOYEE_NAME   EMPLOYEE_SAL EMPLOYEE_COM    DEPT_NO                
+----------- --------------- ------------ ------------ ----------                
+        100 SMITH                    800            0         20                
+        101 SNEHAL                  1600          300          0                
+        102 ADAMA                   1100            0         20                
+        103 AMAN                    3000            0         15                
+        104 ANITA                   5000         5000         10                
+        105 SNEHA                   2450         2450         10                
+        106 ANAMIKA                 2975            0         30                
+
+7 rows selected.
+
+SQL> CREATE TABLE DEPOSIT(
+  2  A_NO NUMBER(9,2),
+  3  CNAME VARCHAR2(15),
+  4  BNAME VARCHAR2(15),
+  5  AMOUNT NUMBER(9,2),
+  6  DATE DATE);
+DATE DATE)
+*
+ERROR at line 6:
+ORA-00904: : invalid identifier 
+
+
+SQL> CREATE TABLE DEPOSIT(
+  2  A_NO NUMBER(9,2),
+  3  CNAME VARCHAR2(15),
+  4  BNAME VARCHAR2(15),
+  5  AMOUNT NUMBER(9,2),
+  6  ADATE DATE);
+CREATE TABLE DEPOSIT(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> CREATE TABLE DEPOSIT1(
+  2  A_NO NUMBER(9,2),
+  3  CNAME VARCHAR2(15),
+  4  BNAME VARCHAR2(15),
+  5  AMOUNT NUMBER(9,2),
+  6  ADATE DATE);
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(101,'ANIL','ANDHERI',7000,01-JAN-06);
+INSERT INTO DEPOSIT1 VALUES(101,'ANIL','ANDHERI',7000,01-JAN-06)
+                                                         *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> INSERT INTO DEPOSIT1 VALUES(101,'ANIL','ANDHERI',7000,'01-JAN-06');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(102,'SUNIL','VIRAR',5000,'15-JUL-06');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(103,'JAY','VILLEPARLE',6500,'12-MAR-06');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(104,'VIJAY','ANDHERI',8000,'17-SEP-06');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(105,'KEYUR','DADAR',7500,'19-NOV-06');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT1 VALUES(106,'MAYUR','BORIVALI',5500,'21-DEC-06');
+
+1 row created.
+
+SQL> SELECT * FROM DEPOSIT1;
+
+      A_NO CNAME           BNAME               AMOUNT ADATE                     
+---------- --------------- --------------- ---------- ---------                 
+       101 ANIL            ANDHERI               7000 01-JAN-06                 
+       102 SUNIL           VIRAR                 5000 15-JUL-06                 
+       103 JAY             VILLEPARLE            6500 12-MAR-06                 
+       104 VIJAY           ANDHERI               8000 17-SEP-06                 
+       105 KEYUR           DADAR                 7500 19-NOV-06                 
+       106 MAYUR           BORIVALI              5500 21-DEC-06                 
+
+6 rows selected.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF;
