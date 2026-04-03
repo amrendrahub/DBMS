@@ -1,0 +1,121 @@
+SQL> CREATE TABLE CUSTOMER (
+  2   CUST_NO NUMBER(4) PRIMARY KEY,
+  3  FIRST_NAME VARCHAR2(20) NOT NULL,
+  4  LAST_NAME VARCHAR2(20),
+  5   ADDRESS VARCHAR2(20),
+  6  CITY VARCHAR2(8),
+  7  STATE VARCHAR2(20),
+  8   PIN NUMBER(6),
+  9  B_DATE DATE,
+ 10  STATUS CHAR(1),
+ 11  CONSTRAINT chk_status CHECK (STATUS IN ('V','I','A'))
+ 12  );
+
+Table created.
+
+SQL> INSERT INTO CUSTOMER VALUES(1003, 'RAJ', 'BAHADUR', 'SHANTI VILLA', 'UDP', 'KARNATAKA', 576101, '01-AUG-70', 'V');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES
+  2  (1004, 'FELIX', 'SIMON', 'M-J-56', 'PJM', 'GOA', 403002, '12-FEB-71', 'A');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES
+  2  (1005, 'RAJAN', 'KUTTY', 'A1 TRADERS', 'KNR', 'KERALA', 670001, '09-JUN-71', 'A');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES
+  2  (1006, 'SHILPA', 'PAI', '12/4B', 'MNG', 'KARNATAKA', 574154, '11-DEC-70', 'I');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES
+  2  (1007, 'BOSCO', 'RAKSHIT', 'R.K. PLAZA', 'BNG', 'KARNATAKA', 576201, '01-JAN-71', 'A');
+
+1 row created.
+
+SQL> ? 3. Display All Records
+SP2-0172: No HELP matching this topic was found.
+SQL> SELECT * FROM CUSTOMER;
+
+   CUST_NO FIRST_NAME           LAST_NAME            ADDRESS                    
+---------- -------------------- -------------------- --------------------       
+CITY     STATE                       PIN B_DATE    S                            
+-------- -------------------- ---------- --------- -                            
+      1003 RAJ                  BAHADUR              SHANTI VILLA               
+UDP      KARNATAKA                576101 01-AUG-70 V                            
+                                                                                
+      1004 FELIX                SIMON                M-J-56                     
+PJM      GOA                      403002 12-FEB-71 A                            
+                                                                                
+      1005 RAJAN                KUTTY                A1 TRADERS                 
+KNR      KERALA                   670001 09-JUN-71 A                            
+                                                                                
+
+   CUST_NO FIRST_NAME           LAST_NAME            ADDRESS                    
+---------- -------------------- -------------------- --------------------       
+CITY     STATE                       PIN B_DATE    S                            
+-------- -------------------- ---------- --------- -                            
+      1006 SHILPA               PAI                  12/4B                      
+MNG      KARNATAKA                574154 11-DEC-70 I                            
+                                                                                
+      1007 BOSCO                RAKSHIT              R.K. PLAZA                 
+BNG      KARNATAKA                576201 01-JAN-71 A                            
+                                                                                
+
+ 
+SQL> SELECT * FROM CUSTOMER;
+
+   CUST_NO FIRST_NAME           LAST_NAME            ADDRESS                    
+---------- -------------------- -------------------- --------------------       
+CITY     STATE                       PIN B_DATE    S                            
+-------- -------------------- ---------- --------- -                            
+      1003 RAJ                  BAHADUR              SHANTI VILLA               
+UDP      KARNATAKA                576101 01-AUG-70 V                            
+                                                                                
+      1004 FELIX                SIMON                M-J-56                     
+PJM      GOA                      403002 12-FEB-71 A                            
+                                                                                
+      1005 RAJAN                KUTTY                A1 TRADERS                 
+KNR      KERALA                   670001 09-JUN-71 A                            
+                                                                                
+
+   CUST_NO FIRST_NAME           LAST_NAME            ADDRESS                    
+---------- -------------------- -------------------- --------------------       
+CITY     STATE                       PIN B_DATE    S                            
+-------- -------------------- ---------- --------- -                            
+      1006 SHILPA               PAI                  12/4B                      
+MNG      KARNATAKA                574154 11-DEC-70 I                            
+                                                                                
+      1007 BOSCO                RAKSHIT              R.K. PLAZA                 
+BNG      KARNATAKA                576201 01-JAN-71 A                            
+                                                                                
+
+SQL> SELECT * FROM CUSTOMER
+  2  WHERE STATE = 'KARNATAKA';
+
+   CUST_NO FIRST_NAME           LAST_NAME            ADDRESS                    
+---------- -------------------- -------------------- --------------------       
+CITY     STATE                       PIN B_DATE    S                            
+-------- -------------------- ---------- --------- -                            
+      1003 RAJ                  BAHADUR              SHANTI VILLA               
+UDP      KARNATAKA                576101 01-AUG-70 V                            
+                                                                                
+      1006 SHILPA               PAI                  12/4B                      
+MNG      KARNATAKA                574154 11-DEC-70 I                            
+                                                                                
+      1007 BOSCO                RAKSHIT              R.K. PLAZA                 
+BNG      KARNATAKA                576201 01-JAN-71 A                            
+                                                                                
+
+
+
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
