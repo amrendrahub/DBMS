@@ -1,0 +1,109 @@
+SQL> SET LINESIZE 200
+SQL> SET PAGESIZE 100
+SQL> SET WRAP OFF
+SQL> CREATE TABLE CUSTOMER (
+  2  CUST_NO NUMBER(4) PRIMARY KEY,
+  3  FIRST_NAME VARCHAR2(20) NOT NULL,
+  4  LAST_NAME VARCHAR2(20),
+  5  ADDRESS VARCHAR2(20),
+  6  CITY VARCHAR2(8),
+  7  STATE VARCHAR2(20),
+  8  PIN NUMBER(6),
+  9  B_DATE DATE,
+ 10  STATUS CHAR(1) CHECK (STATUS IN ('V','I','A'))
+ 11  );
+
+Table created.
+
+SQL> INSERT INTO CUSTOMER VALUES (1003,'RAJ','BAHADUR','SHANTI VILLA','UDP','KARNATAKA',576101,TO_DATE('01-AUG-1970','DD-MON-YYYY'),'V');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES (1004,'FELIX','SIMON','M-J-56','PJM','GOA',403002,TO_DATE('12-FEB-1971','DD-MON-YYYY'),'A');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES (1005,'RAJAN','KUTTY','A1 TRADERS','KNR','KERALA',670001,TO_DATE('09-JUN-1971','DD-MON-YYYY'),'A');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES (1006,'SHILPA','PATIL','12/4B','MNG','KARNATAKA',574154,TO_DATE('11-DEC-1970','DD-MON-YYYY'),'I');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER VALUES (1007,'BOSCO','RAKSHIT','R.K. PLAZA','BNG','KARNATAKA',576201,TO_DATE('01-JAN-1971','DD-MON-YYYY'),'A');
+
+1 row created.
+
+SQL> 
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT SYSDATE + 15 AS New_Date FROM DUAL;
+
+NEW_DATE                                                                                                                                                                                                
+---------                                                                                                                                                                                               
+26-APR-26                                                                                                                                                                                               
+
+SQL> SELECT ADD_MONTHS(SYSDATE, 5)  AS Plus_5_Months,
+  2         ADD_MONTHS(SYSDATE, -5) AS Minus_5_Months
+  3  FROM DUAL;
+
+PLUS_5_MO MINUS_5_M                                                                                                                                                                                     
+--------- ---------                                                                                                                                                                                     
+11-SEP-26 11-NOV-25                                                                                                                                                                                     
+
+SQL> SELECT ASCII('M') FROM DUAL;
+
+ASCII('M')                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+        77                                                                                                                                                                                              
+
+SQL> SELECT CHR(67), CHR(65), CHR(84) FROM DUAL;
+
+C C C                                                                                                                                                                                                   
+- - -                                                                                                                                                                                                   
+C A T                                                                                                                                                                                                   
+
+SQL> SELECT LAST_DAY(SYSDATE) FROM DUAL;
+
+LAST_DAY(                                                                                                                                                                                               
+---------                                                                                                                                                                                               
+30-APR-26                                                                                                                                                                                               
+
+SQL> SELECT SYSDATE - TO_DATE('20-05-2015','DD-MM-YYYY') FROM DUAL;
+
+SYSDATE-TO_DATE('20-05-2015','DD-MM-YYYY')                                                                                                                                                              
+------------------------------------------                                                                                                                                                              
+                                3979.83769                                                                                                                                                              
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE, TO_DATE('03-03-2016','DD-MM-YYYY')) FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,TO_DATE('03-03-2016','DD-MM-YYYY'))                                                                                                                                              
+----------------------------------------------------------                                                                                                                                              
+                                                121.285091                                                                                                                                              
+
+SQL> SELECT INSTR('corporate floor','or',3,2) FROM DUAL;
+
+INSTR('CORPORATEFLOOR','OR',3,2)                                                                                                                                                                        
+--------------------------------                                                                                                                                                                        
+                              14                                                                                                                                                                        
+
+SQL> SELECT INITCAP('marwadi university') FROM DUAL;
+
+INITCAP('MARWADIUN                                                                                                                                                                                      
+------------------                                                                                                                                                                                      
+Marwadi University                                                                                                                                                                                      
+
+SQL> SELECT USER, UID FROM DUAL;
+
+USER                                  UID                                                                                                                                                               
+------------------------------ ----------                                                                                                                                                               
+ADITYA75                               61                                                                                                                                                               
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF;

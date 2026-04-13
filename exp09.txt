@@ -1,0 +1,348 @@
+SQL> CREATE TABLE DEPOSIT9(
+  2  ACTNO NUMBER(5),
+  3  CNAME VARCHAR2(15),
+  4  BNAME  VARCHAR2(15),
+  5  AMOUNT NUMBER(9,2),
+  6  ADATE DATE
+  7  );
+
+Table created.
+
+SQL> CREATE TABLE BRANCH9(
+  2  BNAME  VARCHAR2(15),
+  3  CITY VARCHAR2(15)
+  4  );
+
+Table created.
+
+SQL> CREATE TABLE CUSTOMERS9(
+  2  CNAME VARCHAR2(15),
+  3  CITY VARCHAR2(15)
+  4  );
+
+Table created.
+
+SQL> CREATE TABLE BORROW9(
+  2  LOANNO VARCHAR2(5),
+  3  CNAME VARCHAR2(15),
+  4  BNAME VARCHAR2(15),
+  5  AMOUNT NUMBER(9,2)
+  6  );
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (100,'ANIL','VRCE',1000.00,'01-MAR-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (101,'SUNIL','AJNI',5000.00,'04-JAN-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (102,'MEHUL','KAROLBAGH',3500.00,'17-NOV-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (104,'MADHURI','CHANDI',1200.00,'17-DEC-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (105,'PRMOD','M G ROAD',3000.00,'27-MAR-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (106,'SANDIP','ANDHERI',2000.00,'31-MAR-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (107,'SHIVANI','VIRAR',1000.00,'05-SEP-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (108,'KRANTI','NEHRU PLACE',5000.00,'02-JUL-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT9 VALUES (109,'MINU','POWAI',7000.00,'10-AUG-95');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('VRCE','NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('AJNI','NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('KAROLBAGH','DELHI');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('CHANDI','DELHI');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('M G ROAD','BANGALORE');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('ANDHERI','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('VIRAR','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('NEHRU PLACE','DELHI');
+
+1 row created.
+
+SQL> INSERT INTO BRANCH9 VALUES ('POWAI','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('ANIL','CALCUTTA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('SUNIL','DELHI');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('MEHUL','BARODA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('MANDAR','PATNA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('MADHURI','NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('PRMOD','NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('SANDIP','SURAT');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('SHIVANI','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('KRANTI','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS9 VALUES ('MINU','BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (201,'ANIL','VRCE',1000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (206,'MEHUL','AJNI',5000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (311,'SUNIL','DHARAMPETH',3000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (321,'MADHURI','ANDHERI',2000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (375,'PRMOD','VIRAR',8000.00);
+
+1 row created.
+
+SQL> INSERT INTO BORROW9 VALUES (481,'KRANTI','NEHRU PLACE',3000.00);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT *FROM DEPOSIT9;
+
+     ACTNO CNAME           BNAME               AMOUNT ADATE                     
+---------- --------------- --------------- ---------- ---------                 
+       100 ANIL            VRCE                  1000 01-MAR-95                 
+       101 SUNIL           AJNI                  5000 04-JAN-96                 
+       102 MEHUL           KAROLBAGH             3500 17-NOV-95                 
+       104 MADHURI         CHANDI                1200 17-DEC-95                 
+       105 PRMOD           M G ROAD              3000 27-MAR-96                 
+       106 SANDIP          ANDHERI               2000 31-MAR-96                 
+       107 SHIVANI         VIRAR                 1000 05-SEP-95                 
+       108 KRANTI          NEHRU PLACE           5000 02-JUL-95                 
+       109 MINU            POWAI                 7000 10-AUG-95                 
+
+9 rows selected.
+
+SQL> SELECT *FROM BRANCH9;
+
+BNAME           CITY                                                            
+--------------- ---------------                                                 
+VRCE            NAGPUR                                                          
+AJNI            NAGPUR                                                          
+KAROLBAGH       DELHI                                                           
+CHANDI          DELHI                                                           
+M G ROAD        BANGALORE                                                       
+ANDHERI         BOMBAY                                                          
+VIRAR           BOMBAY                                                          
+NEHRU PLACE     DELHI                                                           
+POWAI           BOMBAY                                                          
+
+9 rows selected.
+
+SQL> SELECT *FROM CUSTOMERS9;
+
+CNAME           CITY                                                            
+--------------- ---------------                                                 
+ANIL            CALCUTTA                                                        
+SUNIL           DELHI                                                           
+MEHUL           BARODA                                                          
+MANDAR          PATNA                                                           
+MADHURI         NAGPUR                                                          
+PRMOD           NAGPUR                                                          
+SANDIP          SURAT                                                           
+SHIVANI         BOMBAY                                                          
+KRANTI          BOMBAY                                                          
+MINU            BOMBAY                                                          
+
+10 rows selected.
+
+SQL> SELECT *FROM BORROW9;
+
+LOANN CNAME           BNAME               AMOUNT                                
+----- --------------- --------------- ----------                                
+201   ANIL            VRCE                  1000                                
+206   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+375   PRMOD           VIRAR                 8000                                
+481   KRANTI          NEHRU PLACE           3000                                
+
+6 rows selected.
+
+SQL> SELECT CNAME FROM DEPOSIT
+  2  WHERE BNAME IN (
+  3    SELECT BNAME FROM DEPOSIT WHERE CNAME = 'SUNIL'
+  4  );
+
+CNAME                                                                           
+---------------                                                                 
+SUNIL                                                                           
+
+SQL> -- Deposit details:
+SQL> SELECT D.* FROM DEPOSIT D, BRANCH B
+  2  WHERE D.BNAME = B.BNAME
+  3  AND B.CITY = (SELECT CITY FROM CUSTOMERS WHERE CNAME = 'PRAMOD');
+
+no rows selected
+ 
+SQL> -- Loan details:
+SQL> SELECT BR.* FROM BORROW BR, BRANCH B
+  2  WHERE BR.BNAME = B.BNAME
+  3  AND B.CITY = (SELECT CITY FROM CUSTOMERS WHERE CNAME = 'PRAMOD');
+
+no rows selected
+
+SQL> SELECT EMP_NO, EMP_NAME
+  2  FROM EMPLOYEE
+  3  WHERE EMP_SAL > (SELECT AVG(EMP_SAL) FROM EMPLOYEE)
+  4  ORDER BY EMP_SAL ASC;
+
+no rows selected
+
+SQL> SELECT EMP_NAME, EMP_SAL
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO = (SELECT DEPT_NO FROM EMPLOYEE WHERE EMP_NAME = 'Ford');
+
+no rows selected
+
+SQL> SELECT EMP_NO, EMP_NAME, DEPT_NO
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO = 10;
+
+no rows selected
+
+SQL> -- Note: If a DEPT table exists with department names:
+SQL> -- SELECT E.EMP_NO, E.EMP_NAME, D.DNAME
+SQL> -- FROM EMPLOYEE E, DEPT D
+SQL> -- WHERE E.DEPT_NO = D.DEPTNO AND D.DNAME = 'ACCOUNTING'
+SQL> 
+SQL> SELECT CNAME FROM CUSTOMERS
+  2  WHERE CITY = 'NAGPUR'
+  3  AND CNAME IN (SELECT CNAME FROM DEPOSIT)
+  4  AND CNAME IN (SELECT CNAME FROM BORROW);
+
+CNAME                                                                           
+---------------                                                                 
+MADHURI                                                                         
+PRMOD                                                                           
+
+SQL> SELECT C.CNAME, C.CITY
+  2  FROM CUSTOMERS C, BRANCH B
+  3  WHERE C.CITY = B.CITY;
+
+CNAME           CITY                                                            
+--------------- ---------------                                                 
+SUNIL           DELHI                                                           
+SUNIL           DELHI                                                           
+SUNIL           DELHI                                                           
+MADHURI         NAGPUR                                                          
+MADHURI         NAGPUR                                                          
+PRMOD           NAGPUR                                                          
+PRMOD           NAGPUR                                                          
+SHIVANI         BOMBAY                                                          
+SHIVANI         BOMBAY                                                          
+SHIVANI         BOMBAY                                                          
+KRANTI          BOMBAY                                                          
+
+CNAME           CITY                                                            
+--------------- ---------------                                                 
+KRANTI          BOMBAY                                                          
+KRANTI          BOMBAY                                                          
+MINU            BOMBAY                                                          
+MINU            BOMBAY                                                          
+MINU            BOMBAY                                                          
+
+16 rows selected.
+
+SQL> SELECT E.EMP_NAME, E.DEPT_NO
+  2  FROM EMPLOYEE E;
+
+no rows selected
+
+SQL> -- If DEPT table is available:
+SQL> -- SELECT E.EMP_NAME, E.DEPT_NO, D.DNAME
+SQL> -- FROM EMPLOYEE E, DEPT D
+SQL> -- WHERE E.DEPT_NO = D.DEPTNO;
+SQL>
+SQL> SELECT DISTINCT EMP_NAME, DEPT_NO
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO = 30;
+
+no rows selected
+
+SQL> SELECT E.EMP_NAME, E.DEPT_NO
+  2  FROM EMPLOYEE E, CUSTOMERS C
+  3  WHERE C.CITY = 'CALCUTTA'
+  4  AND C.CNAME = E.EMP_NAME;
+
+no rows selected
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF;
